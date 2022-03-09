@@ -26,10 +26,10 @@
         android:backgroundTint="#60B1BF"
         android:text="An Server senden"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
+        app:layout_constraintTop_toBottomOf="@+id/Matrikelnummer" />
 
     <EditText
-        android:id="@+id/editTextNumber"
+        android:id="@+id/Matrikelnummer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="42dp"
