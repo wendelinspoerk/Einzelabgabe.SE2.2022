@@ -43,6 +43,26 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String MatrNr = Matrikelnummer.getText().toString();
+                char[] result = MatrNr.toCharArray();
+                String alphabet = "abcdefghi";
+
+                for (int i=1; i<result.length; i+=2){
+                    if (result[i] == '0'){
+                        result[i] = 'j';
+                    }else{
+                        result[i] = alphabet.charAt(Integer.parseInt(String.valueOf(result[i])) -1);
+                    }
+                }
+                String myString = String.valueOf(result);
+                ausgabe_Berechnung.setText(myString);
+
+            }
+        });
+
 
     }
 

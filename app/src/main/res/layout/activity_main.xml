@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:layout_marginEnd="111dp"
-        android:backgroundTint="#60B1BF"
+        android:backgroundTint="#8D61DF"
         android:text="An Server senden"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Matrikelnummer" />
