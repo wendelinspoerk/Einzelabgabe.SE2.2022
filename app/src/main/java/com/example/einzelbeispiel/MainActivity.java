@@ -44,25 +44,30 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
     }
 
-    public void starClient(){
+    public void starClient() {
         TCPClient thread = new TCPClient();
         thread.start();
     }
 
-    public class TCPClient extends Thread {
-        public void main(String argv[]) throws Exception {
-            String sentence = Matrikelnummer.getText().toString();
+    class TCPClient extends Thread {
+        public void run() {
+            try {
+                String sentence = Matrikelnummer.getText().toString();
 
-            Socket clientSocket = new Socket("se2-isys.aau.at", 53212);
-            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-            BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-            outToServer.writeBytes(sentence + '\n');
+                Socket clientSocket = new Socket("se2-isys.aau.at", 53212);
+                DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+                BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+                outToServer.writeBytes(sentence + '\n');
 
-            ausgabe_server.setText(inFromServer.readLine());
-            clientSocket.close();
+                ausgabe_server.setText(inFromServer.readLine());
+                clientSocket.close();
+
+            } catch (Exception Networkerror) {
+                ausgabe_server.setText("Network Error");
+            }
         }
     }
 }
+
